@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Iterating Array Methods</title>
+		<link
+			rel="stylesheet"
+			href="style.css" />
+	</head>
+	<body>
+		<h1>Module 4 Lesson 8</h1>
+		<h2>Iterating Array Methods</h2>
+
+		<p>All array iteration methods have a similar syntax. The original array, the method method call and the callback function as the method argument.</p>
+
+		<div class="border">
+			<h3>Syntax</h3>
+
+			<pre>
+        const array = ['🍎', '🍉', '🍒']
+        array.method((item, idx, arr) => {
+            // logic that will be used in each iteration
+        });
+    </pre
+			>
+			<ul>
+				<li>item represents the individual item</li>
+				<li>idx represents the index number</li>
+				<li>arr is the array itself</li>
+			</ul>
+			<em>Note: Most of the time we only pass 2 inside the parameters to get each element and index number</em>
+		</div>
+
+		<div class="border">
+			<h3>map() Method</h3>
+			<p>The map(callback) method is used to transform an array. It calls a callback for each element of the original array and writes its result to a new array</p>
+			<pre>
+    const fruits = ['🍉', '🍎', '🍌']
+    const updatedFruits = fruits.map((fruit) => fruit + '🍌')
+    updatedFruits // ['🍉🍌', '🍎🍌', '🍌🍌']
+</pre
+			>
+			<em>Note: The map method does not directly change the original array instead it creates a new updated array.</em>
+		</div>
+
+		<div class="border">
+			<h3>filter() Method</h3>
+			<p>The filter(callback) method is used for one operation only – array filtering, that is, when more than one element from a collection should be selected using a specific criterion.</p>
+			<pre>
+        const fruits = ['🍉', '🍎', '🍌']
+        const updatedFruits = fruits.filter((fruit) => fruit !== '🍌')
+        updatedFruits // ['🍉', '🍎']
+    </pre
+			>
+			<em>Note: The filter method does not directly change the original array instead it creates a new updated array.</em>
+		</div>
+
+		<div class="border">
+			<h3>find() Method</h3>
+			<p>The find method returns you that first item that matches the condition. If no item satisfy the condition then it returns <em>undefined</em></p>
+			<pre>
+        const fruits = ['🍉', '🍎', '🍌']
+        const updatedFruits = fruits.find((fruit) => fruit === '🍌')
+        updatedFruits // '🍌'
+    </pre
+			>
+		</div>
+
+		<div class="border">
+			<h3>findIndex() Method</h3>
+			<p>By the name of the method itself it returns you the index of the item you're looking for.</p>
+			<pre>
+        const fruits = ['🍉', '🍎', '🍌']
+        const index = fruits.find((fruit) => fruit === '🍌')
+        index // 2
+    </pre
+			>
+		</div>
+
+		<div class="border">
+			<h3>every() Method</h3>
+			<p>Checks if all array elements pass the test provided by the callback. Returns true if all the items satisfy the condition or else false.</p>
+			<pre>
+        const numbers = [10, 35, 42, 88, 5, 76]
+        const result = numbers.every((number) => number > 0)
+        result // true
+    </pre
+			>
+		</div>
+
+		<div class="border">
+			<h3>some() Method</h3>
+			<p>
+				Checks if some of the array elements pass the test provided by the callback. Returns true atleast one satisfies the condition. If all the items doesn't satisfy the condition it returns
+				false.
+			</p>
+			<pre>
+        const numbers = [-10, -35, -42, -88, 5, -76]
+        const result = numbers.some((number) => number > 0)
+        result // true
+    </pre
+			>
+		</div>
+
+		<div class="border">
+			<h3>sort() Method</h3>
+			<p>The sort() method sorts the elements of an array, but unlike other iterating methods, it sorts the original array in place without having to create a copy.</p>
+			<pre>
+        const numbers = [61, 19, 74, 35, 92, 56]
+        numbers.sort()
+        numbers // [19, 35, 56, 61, 74, 92]
+    </pre
+			>
+			<p>
+				However, since by default the values are converted to a string, the standard sorting of numbers works in an unusual way. Therefore, in the next exercise, let's look at how to set a
+				custom sort order.
+			</p>
+
+			<pre>
+        const scores = [27, 2, 41, 4, 7, 3, 75];
+        scores.sort();
+        scores; // [2, 27, 3, 4, 41, 7, 75]
+
+        Sort by ascending formula a-b
+        Sort by descending formula b-a
+
+        const scores = [27, 2, 41, 4, 7, 3, 75];
+        scores.sort((a, b) => a - b);
+        scores   // [2, 3, 4, 7, 27, 41, 75]
+
+        scores.sort((a, b) => b-a);
+        scores // [75, 41, 27, 7, 4, 3, 2]
+        </pre
+			>
+		</div>
+
+		<div class="border">
+			<h3>flatMap() Method</h3>
+			<p>
+				The flatMap(callback) method is similar to the map() method, but it is used in cases where the result is a multidimensional array or an array of objects that needs to be "flattened".
+			</p>
+			<pre>
+        const students = [
+            { name: "Mango", courses: ["mathematics", "physics"] },
+            { name: "Poly", courses: ["informatics", "mathematics"] },
+            { name: "Kiwi", courses: ["physics", "biology"] },
+        ];
+
+        Result of using map:
+        students.map(student => student.courses);
+        <strong>[['mathematics', 'physics'], ['informatics', 'mathematics'], ['physics', 'biology']]</strong>
+
+        Result of using flatMap:
+        students.flatMap(student => student.courses);
+        <strong>['mathematics', 'physics', 'informatics', 'mathematics', 'physics', 'biology']</strong>
+
+    </pre>
+		</div>
+
+		<div class="border">
+			<h3>reduce() Method</h3>
+			<p>The reduce(callback, initialValue) method is used to process each array element, one by one, storing the intermediate result as an accumulator.</p>
+			<pre>
+        const scores = [2, 7, 3, 14, 6]
+        const result = scores.reduce((acc, score) => acc + score,0)
+        result // 32
+    </pre
+			>
+		</div>
+
+		<script src="./js/script.js"></script>
+		<!-- <script src="./js/example-01.js"></script> -->
+		<!-- <script src="./js/example-02.js"></script> -->
+		<!-- <script src="./js/example-03.js"></script> -->
+		<!-- <script src="./js/example-04.js"></script> -->
+		<!-- <script src="./js/example-05.js"></script> -->
+		<!-- <script src="./js/example-06.js"></script> -->
+		<!-- <script src="./js/example-07.js"></script> -->
+		<!-- <script src="./js/example-08.js"></script> -->
+		<!-- <script src="./js/example-09.js"></script> -->
+		<!-- <script src="./js/example-10.js"></script> -->
+		<!-- <script src="./js/example-11.js"></script> -->
+		<!-- <script src="./js/example-12.js"></script> -->
+	</body>
+</html>
