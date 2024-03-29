@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registration Form</title>
+	</head>
+	<body>
+		<h2>Successfully Registered</h2>
+		<form method="POST" id="regForm">
+			<div>
+				<label for="firstname">First Name</label>
+				<input type="text" placeholder="First Name" id="firstname" />
+			</div>
+			<div>
+				<label for="firstname">Last Name</label>
+				<input type="text" placeholder="Last Name" id="lastname" />
+			</div>
+			<div>
+				<label for="username">Username</label>
+				<input type="text" placeholder="Username" id="username" />
+			</div>
+			<div>
+				<label for="password">Password</label>
+				<input type="password" placeholder="Password" id="password" />
+			</div>
+			<div>
+				<label for="password">Confirm Password</label>
+				<input type="password" placeholder="Confirm Password" id="password2" />
+			</div>
+			<!-- optional -->
+			<div>
+				<label>Gender</label>
+				<select id="gender">
+					<option disabled selected>Select Gender</option>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</div>
+
+			<button>Register</button>
+		</form>
+
+		<script src="./js/exercise3.js"></script>
+	</body>
+</html>
