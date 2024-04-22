@@ -1,0 +1,25 @@
+REST API
+
+REST - REpresentatioal State Transfer
+
+State - means data
+Representational - means format such as (JSON, HTML, XML, etc..)
+Transfer - carrying data between consumer (client) and provider (server) using HTTP Protocol
+
+Designing your REST API end points
+
+Todo List App
+- add todo
+- get all todos
+- get todo by id
+- delete todo
+- update todo
+
+URI Uniform resource identifier
+
+HTTP METHOD         URI PATH                Description
+GET                 /todos                  Get all todos
+POST                /todos                  Add a todo
+GET                 /todos/id               Get todo by id
+DELETE              /todos/id               Delete todo by id
+PUT                 /todos/id               Update todo by id
